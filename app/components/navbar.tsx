@@ -1,13 +1,16 @@
+'use client';
 import { Package, Heart, ShoppingCart, User,Menu, Search,ChevronDown} from "lucide-react";
 import { FaQuestionCircle } from "react-icons/fa";
-
+import { useState } from "react";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="bg-white position-fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <div className=" fixed top-0 left-0 right-0  z-50 shadow-sm">
         <div className=" flex justify-between   p-3  items-center gap-1.5 shadow-md ">
             <div>
-                <span className="flex gap-1">Ultimate</span>
+                <span className="flex gap-1 md:font-bold md:text-2xl">Secondand</span>
             </div>
             <div className="hidden md:block relative">
               <details className="group">
@@ -69,8 +72,46 @@ function Navbar() {
              <div className="md:hidden flex items-center gap-2">
                <p className="flex gap-2 items-center"> <ShoppingCart/></p>
                 <p className="flex gap-2 items-center"> <User/> </p>
-              <Menu/>
+                 <div className="cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  <Menu/>
+                 </div>
              </div>
+             {/* Mobile menu items */}
+             {/* Mobile menu */}
+<div
+  className={`
+    md:hidden
+    absolute top-full left-0 w-full bg-white shadow-lg
+    transform transition-all duration-300 ease-in-out
+    ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-5 pointer-events-none"}
+  `}
+>
+  <div className="flex flex-col gap-5 p-5">
+    <p className="flex gap-3 items-center text-base font-medium">
+      <Heart /> Favourites
+    </p>
+
+    <p className="flex gap-3 items-center text-base font-medium">
+      <FaQuestionCircle /> Help Center
+    </p>
+
+    {/* Categories dropdown (mobile accordion) */}
+    <details className="group">
+      <summary className="flex items-center justify-between cursor-pointer font-medium list-none">
+        Categories
+        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
+      </summary>
+
+      <ul className="mt-3 border rounded-lg overflow-hidden">
+        <li className="px-4 py-3 hover:bg-gray-100">Electronics</li>
+        <li className="px-4 py-3 hover:bg-gray-100">Clothing</li>
+        <li className="px-4 py-3 hover:bg-gray-100">Shoes</li>
+        <li className="px-4 py-3 hover:bg-gray-100">Accessories</li>
+      </ul>
+    </details>
+  </div>
+</div>
+
         </div>
     </div>
   )

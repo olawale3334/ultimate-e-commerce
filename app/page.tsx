@@ -1,7 +1,7 @@
 
 function page() {
   return (
-    <div>page</div>
+    <div className="mt-20">page</div>
   )
 }
 
