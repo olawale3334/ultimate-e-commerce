@@ -68,8 +68,17 @@ function Navbar() {
                 <p className="flex gap-2 items-center"> <ShoppingCart/> Cart</p>
                 <p className="flex gap-2 items-center"> <User/> profile</p>
                 <p className="flex gap-2 items-center"> <FaQuestionCircle/> Help Center</p>
+               <div className="flex items-center gap-2">
+                 <button className="bg-neutral-900 text-white px-6 py-2 rounded-md font-medium tracking-wide hover:bg-neutral-800 transition">
+                  Register
+                </button>
+                <button className="bg-neutral-900 text-white px-6 py-2 rounded-md font-medium tracking-wide hover:bg-neutral-800 transition">
+                  Login
+                </button>
+               </div>
             </div>
              <div className="md:hidden flex items-center gap-2">
+                 
                <p className="flex gap-2 items-center"> <ShoppingCart/></p>
                 <p className="flex gap-2 items-center"> <User/> </p>
                  <div className="cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -109,6 +118,14 @@ function Navbar() {
         <li className="px-4 py-3 hover:bg-gray-100">Accessories</li>
       </ul>
     </details>
+    <button className="bg-neutral-900 text-white px-6 py-2 rounded-md font-medium tracking-wide border border-[#C9A24D] hover:text-[#C9A24D] transition">
+  Register
+</button>
+
+<button className="bg-neutral-900 text-white px-6 py-2 rounded-md font-medium tracking-wide hover:bg-neutral-800 transition">
+  Login
+</button>
+
   </div>
 </div>
 
